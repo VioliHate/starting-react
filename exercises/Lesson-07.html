@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+<script type="text/babel">
+  const Message = props => <div className="message">{props.children}</div>
+  //type 1
+  // const element = (
+  //         <div className="container">
+  //           <Message>Hello World</Message>
+  //           {Message({msg:'Hello World'})}
+  //           {Message({msg:'Goodbye World'})}
+  //         </div>
+  // )
+
+  // type 2
+  const element = (
+          <div className="container">
+              <Message>Hello World
+                  <Message children="GoodBye World"/>
+                  <span> Hey there</span>
+              </Message>
+              <Message>GoodBye World</Message>
+          </div>
+  )
+  ReactDOM.render(element, document.getElementById('root'))
+</script>
+</body>
+</html>
+
